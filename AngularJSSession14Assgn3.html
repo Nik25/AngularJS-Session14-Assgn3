@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="../../scripts/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+</head>
+<body>
+
+    <script>
+    var module = angular.module('myapp', []);
+    module.factory('userService', function(){
+        var fac = {};
+        fac.users = ['Mike', '34', '574362', '50000'];
+        return fac;
+    });
+    module.controller("MyController", function ($scope, userService) {
+        $scope.name = userService.users[0];
+        $scope.age = userService.users[1];
+        $scope.empid = userService.users[2];
+        $scope.salary = userService.users[3];
+    });
+    </script>
+    <h2>Demo of factory display with Name, Age, Employee id and Salary in a table.</h2>
+    <div ng-controller="MyController">
+        <table border="1" align="center">
+            <thead>
+                <tr>
+                    <th colspan="2">Employee Details</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Name</td>
+                <td>{{name}}</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>{{age}}</td>
+            </tr>
+            <tr>
+                <td>Emplyee ID</td>
+                <td>{{empid}}</td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td>{{salary}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+</html>
